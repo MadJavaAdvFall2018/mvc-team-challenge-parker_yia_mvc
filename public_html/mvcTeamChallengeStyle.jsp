@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta name="generator" content="HTML Tidy, see www.w3.org" />
-        <link href="style.css" type="text/css">
         <title>Lab 3-4: MVC Demo</title>
     </head>
 

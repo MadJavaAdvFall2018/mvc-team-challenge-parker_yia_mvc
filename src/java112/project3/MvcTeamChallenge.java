@@ -27,32 +27,44 @@ public class MvcTeamChallenge extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-       MyColor color1 = new MyColor();
-       String c1 = request.getParameter("color1");
-       color1.setMyColor(c1);
+                mvc();
+                diagram();
+    }
 
-       MyColor color2 = new MyColor();
-       String c2 = request.getParameter("color2");
-       color2.setMyColor(c2);
+    public void mvc()
+    {
+        MyColor color1 = new MyColor();
+        String c1 = request.getParameter("color1");
+        color1.setMyColor(c1);
 
-       if(c1 != null && c2 !=null)
-       {
-           if (color1.compare(color2.getMyColor()))
-           {
-               color1.setCompare(color1.compareChecker(1));
-               request.setAttribute("colorCompare", color1);
-           } else {
-               color2.setCompare(color2.compareChecker(0));
-               request.setAttribute("colorCompare", color2);
-           }
-       }
+        MyColor color2 = new MyColor();
+        String c2 = request.getParameter("color2");
+        color2.setMyColor(c2);
+
+        if(c1 != null && c2 !=null)
+        {
+            if (color1.compare(color2.getMyColor()))
+            {
+                color1.setCompare(color1.compareChecker(1));
+                request.setAttribute("colorCompare", color1);
+            } else {
+                color2.setCompare(color2.compareChecker(0));
+                request.setAttribute("colorCompare", color2);
+            }
+        }
 
 
-       String url = "/mvcTeamChallenge.jsp";
+        String url = "/mvcTeamChallenge.jsp";
 
-       RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-       dispatcher.forward(request, response);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
+    }
 
+    public void diagram()
+    {
+        String url2 = "/mvcTeamChallengeDiagram.jsp";
 
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url2);
+        dispatcher.forward(request, response);
     }
 }
